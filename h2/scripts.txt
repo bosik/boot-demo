@@ -1,0 +1,94 @@
+DROP TABLE IF EXISTS room_type;
+
+CREATE TABLE room_type (
+  ID CHAR(36) PRIMARY KEY,
+  Description VARCHAR(16)
+);
+
+INSERT INTO room_type (ID, Description) VALUES('f6c478fa-151a-41fa-a253-552490d4c104', 'Economy');
+INSERT INTO room_type (ID, Description) VALUES('447dca2b-f994-4b6d-8b50-ef1d83845067', 'Standard');
+INSERT INTO room_type (ID, Description) VALUES('dffc6eb3-f794-42e3-9e94-74ced32a17e4', 'Luxury');
+
+SELECT * FROM room_type ;
+
+// ---------------------------------------------------------
+
+DROP TABLE IF EXISTS room_capacity;
+
+CREATE TABLE room_capacity (
+  ID CHAR(36) PRIMARY KEY,
+  Description VARCHAR(32),
+  Capacity INT(2)
+);
+
+INSERT INTO room_capacity (ID, Description, Capacity) VALUES('98429f7f-5f7d-4406-9c41-5b652899938f', 'Single', 1);
+INSERT INTO room_capacity (ID, Description, Capacity) VALUES('5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', 'Double occupancy', 2);
+INSERT INTO room_capacity (ID, Description, Capacity) VALUES('b8264820-8efc-4597-89a7-c271bfccef20', 'Triple', 3);
+
+SELECT * FROM room_capacity;
+
+// ---------------------------------------------------------
+
+DROP TABLE IF EXISTS Room;
+
+CREATE TABLE Room(
+  ID CHAR(36) PRIMARY KEY,
+  price INT,
+  room_type_id CHAR(36),
+  room_capacity_id CHAR(36),
+  has_tv BOOLEAN,
+  has_fridge BOOLEAN,
+
+  FOREIGN KEY(room_type_id) REFERENCES room_type,
+  FOREIGN KEY(room_capacity_id) REFERENCES room_capacity
+);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 15, 'f6c478fa-151a-41fa-a253-552490d4c104', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', false, false);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 28, 'f6c478fa-151a-41fa-a253-552490d4c104', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', false, false);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 39, 'f6c478fa-151a-41fa-a253-552490d4c104', 'b8264820-8efc-4597-89a7-c271bfccef20', false, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 30, '447dca2b-f994-4b6d-8b50-ef1d83845067', '98429f7f-5f7d-4406-9c41-5b652899938f', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 30, '447dca2b-f994-4b6d-8b50-ef1d83845067', '98429f7f-5f7d-4406-9c41-5b652899938f', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 30, '447dca2b-f994-4b6d-8b50-ef1d83845067', '98429f7f-5f7d-4406-9c41-5b652899938f', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 30, '447dca2b-f994-4b6d-8b50-ef1d83845067', '98429f7f-5f7d-4406-9c41-5b652899938f', false, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 60, '447dca2b-f994-4b6d-8b50-ef1d83845067', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 60, '447dca2b-f994-4b6d-8b50-ef1d83845067', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 60, '447dca2b-f994-4b6d-8b50-ef1d83845067', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', false, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 90, '447dca2b-f994-4b6d-8b50-ef1d83845067', 'b8264820-8efc-4597-89a7-c271bfccef20', false, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 90, '447dca2b-f994-4b6d-8b50-ef1d83845067', 'b8264820-8efc-4597-89a7-c271bfccef20', false, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 150, 'dffc6eb3-f794-42e3-9e94-74ced32a17e4', '98429f7f-5f7d-4406-9c41-5b652899938f', true, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 150, 'dffc6eb3-f794-42e3-9e94-74ced32a17e4', '98429f7f-5f7d-4406-9c41-5b652899938f', true, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 300, 'dffc6eb3-f794-42e3-9e94-74ced32a17e4', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', true, true);
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 300, 'dffc6eb3-f794-42e3-9e94-74ced32a17e4', '5b64712a-7c5e-4f73-8ffa-a5fb0baf42e7', true, true);
+
+INSERT INTO Room (ID, price, room_type_id, room_capacity_id, has_tv, has_fridge) VALUES(RANDOM_UUID(), 450, 'dffc6eb3-f794-42e3-9e94-74ced32a17e4', 'b8264820-8efc-4597-89a7-c271bfccef20', true, true);
+
+SELECT * FROM Room;
+
+// ---------------------------------------------------------
+
+DROP TABLE IF EXISTS Booking;
+
+CREATE TABLE Booking(
+  ID CHAR(36) PRIMARY KEY,
+  room_id CHAR(36),
+  date_from DATE,
+  date_to DATE,
+  user_id VARCHAR(64),
+
+  FOREIGN KEY(room_id) REFERENCES Room
+);
+
+INSERT INTO Booking (ID, room_id, date_from, date_to, user_id) VALUES(RANDOM_UUID(), '8609c55c-67a8-4fe2-bba5-953f4793c590', '2018-03-15', '2018-05-15', 'john');
+
+/*
+SELECT * FROM room
+WHERE ID NOT IN 
+(SELECT room_id
+FROM Booking
+WHERE (date_from <= '2018-05-04') AND (date_to >= '2018-05-01'));
+*/
