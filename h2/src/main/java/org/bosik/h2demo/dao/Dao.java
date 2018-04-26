@@ -10,8 +10,10 @@ import java.util.List;
  */
 public abstract class Dao<T>
 {
+	// TODO: SpringData
+
 	@PersistenceContext
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	public void create(T entity)
 	{

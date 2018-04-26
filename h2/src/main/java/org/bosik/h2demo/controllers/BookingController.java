@@ -37,6 +37,9 @@ public class BookingController
 	public ResponseEntity book(@RequestParam(name = "roomId") String roomId, @RequestParam("from") String sDateFrom,
 			@RequestParam("to") String sDateTo, @RequestParam(name = "userId") String userId)
 	{
+		// TODO: parse date params automatically
+		// TODO: pass data via body
+
 		try
 		{
 			final SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
@@ -52,7 +55,8 @@ public class BookingController
 		}
 		catch (Exception e)
 		{
-			throw new RuntimeException(e);
+			// TODO: common exception handling
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 	}
 
@@ -69,6 +73,8 @@ public class BookingController
 			@RequestParam(name = "maxPrice", required = false) Integer maxPrice, @RequestParam(name = "type", required = false) String type,
 			@RequestParam(name = "capacity", required = false) String capacities)
 	{
+		// TODO: array params
+
 		try
 		{
 			final SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");

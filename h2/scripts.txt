@@ -83,7 +83,7 @@ CREATE TABLE Booking(
   FOREIGN KEY(room_id) REFERENCES Room
 );
 
-INSERT INTO Booking (ID, room_id, date_from, date_to, user_id) VALUES(RANDOM_UUID(), '8609c55c-67a8-4fe2-bba5-953f4793c590', '2018-03-15', '2018-05-15', 'john');
+// INSERT INTO Booking (ID, room_id, date_from, date_to, user_id) VALUES(RANDOM_UUID(), '8609c55c-67a8-4fe2-bba5-953f4793c590', '2018-03-15', '2018-05-15', 'john');
 
 /*
 SELECT * FROM room
