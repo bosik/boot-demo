@@ -18,17 +18,17 @@ import java.util.Date;
 public class Booking
 {
 	@Id
-	@Column(name = "id", length = 36)
+	@Column(name = "id", columnDefinition = "CHAR(36)")
 	private String id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "room_id")
 	private Room room;
 
-	@Column(name = "date_from")
+	@Column(name = "date_from", columnDefinition = "DATE")
 	private Date dateFrom;
 
-	@Column(name = "date_to")
+	@Column(name = "date_to", columnDefinition = "DATE")
 	private Date dateTo;
 
 	@Column(name = "user_id")

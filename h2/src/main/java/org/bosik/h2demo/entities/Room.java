@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Room
 {
 	@Id
-	@Column(name = "id", length = 36)
+	@Column(name = "id", columnDefinition = "CHAR(36)")
 	private String id;
 
 	@ManyToOne(fetch = FetchType.EAGER)

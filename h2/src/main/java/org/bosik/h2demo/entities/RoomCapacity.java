@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class RoomCapacity
 {
 	@Id
-	@Column(name = "id", length = 36)
+	@Column(name = "id", columnDefinition = "CHAR(36)")
 	private String id;
 
 	@Column(name = "description")
