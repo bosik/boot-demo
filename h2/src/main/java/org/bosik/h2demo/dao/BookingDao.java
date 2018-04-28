@@ -1,7 +1,6 @@
 package org.bosik.h2demo.dao;
 
 import org.bosik.h2demo.entities.Booking;
-import org.bosik.h2demo.entities.Room;
 import org.springframework.stereotype.Repository;
 
 /**

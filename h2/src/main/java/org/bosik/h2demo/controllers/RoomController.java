@@ -1,6 +1,5 @@
 package org.bosik.h2demo.controllers;
 
-import org.bosik.h2demo.entities.Booking;
 import org.bosik.h2demo.entities.Room;
 import org.bosik.h2demo.services.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;

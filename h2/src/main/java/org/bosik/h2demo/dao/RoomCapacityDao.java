@@ -1,7 +1,6 @@
 package org.bosik.h2demo.dao;
 
 import org.bosik.h2demo.entities.RoomCapacity;
-import org.bosik.h2demo.entities.RoomType;
 import org.springframework.stereotype.Repository;
 
 /**
